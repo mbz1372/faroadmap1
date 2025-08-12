@@ -2,15 +2,120 @@ export type RoadmapTopic = {
   id: string;
   title: string;
   description?: string; // Markdown
-  children?: RoadmapTopic[];
+  children?: RoadmapTopic[
+  {
+    slug: "product-management",
+    title: "مدیریت محصول",
+    description: "مسیر یادگیری برای تبدیل شدن به یک مدیر محصول موفق",
+    featured: true,
+    children: [
+      {
+        id: "intro",
+        title: "مقدمه",
+        description: "- تعریف نقش مدیر محصول\n- تفاوت با مدیر پروژه"
+      },
+      {
+        id: "market-research",
+        title: "تحقیقات بازار",
+        description: "- تحلیل رقبا\n- مصاحبه با مشتریان\n- پرسونای کاربر"
+      },
+      {
+        id: "roadmapping",
+        title: "نقشه‌ راه و اولویت‌بندی",
+        description: "- ساخت Roadmap\n- تعیین MVP\n- اولویت‌بندی با RICE و MoSCoW"
+      },
+      {
+        id: "design-dev",
+        title: "طراحی و توسعه محصول",
+        description: "- همکاری با تیم طراحی و فنی\n- پروتوتایپ‌سازی\n- بازخوردگیری"
+      },
+      {
+        id: "launch-iteration",
+        title: "راه‌اندازی و تکرار",
+        description: "- لانچ اولیه\n- اندازه‌گیری KPIها\n- بهبود بر اساس داده"
+      }
+    ]
+  },
+
+];
 };
 
 export type Roadmap = {
   slug: string;
   title: string;
   description: string;
-  tags: string[];
-  topics: RoadmapTopic[];
+  tags: string[
+  {
+    slug: "product-management",
+    title: "مدیریت محصول",
+    description: "مسیر یادگیری برای تبدیل شدن به یک مدیر محصول موفق",
+    featured: true,
+    children: [
+      {
+        id: "intro",
+        title: "مقدمه",
+        description: "- تعریف نقش مدیر محصول\n- تفاوت با مدیر پروژه"
+      },
+      {
+        id: "market-research",
+        title: "تحقیقات بازار",
+        description: "- تحلیل رقبا\n- مصاحبه با مشتریان\n- پرسونای کاربر"
+      },
+      {
+        id: "roadmapping",
+        title: "نقشه‌ راه و اولویت‌بندی",
+        description: "- ساخت Roadmap\n- تعیین MVP\n- اولویت‌بندی با RICE و MoSCoW"
+      },
+      {
+        id: "design-dev",
+        title: "طراحی و توسعه محصول",
+        description: "- همکاری با تیم طراحی و فنی\n- پروتوتایپ‌سازی\n- بازخوردگیری"
+      },
+      {
+        id: "launch-iteration",
+        title: "راه‌اندازی و تکرار",
+        description: "- لانچ اولیه\n- اندازه‌گیری KPIها\n- بهبود بر اساس داده"
+      }
+    ]
+  },
+
+];
+  topics: RoadmapTopic[
+  {
+    slug: "product-management",
+    title: "مدیریت محصول",
+    description: "مسیر یادگیری برای تبدیل شدن به یک مدیر محصول موفق",
+    featured: true,
+    children: [
+      {
+        id: "intro",
+        title: "مقدمه",
+        description: "- تعریف نقش مدیر محصول\n- تفاوت با مدیر پروژه"
+      },
+      {
+        id: "market-research",
+        title: "تحقیقات بازار",
+        description: "- تحلیل رقبا\n- مصاحبه با مشتریان\n- پرسونای کاربر"
+      },
+      {
+        id: "roadmapping",
+        title: "نقشه‌ راه و اولویت‌بندی",
+        description: "- ساخت Roadmap\n- تعیین MVP\n- اولویت‌بندی با RICE و MoSCoW"
+      },
+      {
+        id: "design-dev",
+        title: "طراحی و توسعه محصول",
+        description: "- همکاری با تیم طراحی و فنی\n- پروتوتایپ‌سازی\n- بازخوردگیری"
+      },
+      {
+        id: "launch-iteration",
+        title: "راه‌اندازی و تکرار",
+        description: "- لانچ اولیه\n- اندازه‌گیری KPIها\n- بهبود بر اساس داده"
+      }
+    ]
+  },
+
+];
 };
 
 export const roadmaps: Roadmap[] = [
@@ -95,4 +200,39 @@ export const roadmaps: Roadmap[] = [
       { id: "obs", title: "Observability" },
     ],
   }
+
+  {
+    slug: "product-management",
+    title: "مدیریت محصول",
+    description: "مسیر یادگیری برای تبدیل شدن به یک مدیر محصول موفق",
+    featured: true,
+    children: [
+      {
+        id: "intro",
+        title: "مقدمه",
+        description: "- تعریف نقش مدیر محصول\n- تفاوت با مدیر پروژه"
+      },
+      {
+        id: "market-research",
+        title: "تحقیقات بازار",
+        description: "- تحلیل رقبا\n- مصاحبه با مشتریان\n- پرسونای کاربر"
+      },
+      {
+        id: "roadmapping",
+        title: "نقشه‌ راه و اولویت‌بندی",
+        description: "- ساخت Roadmap\n- تعیین MVP\n- اولویت‌بندی با RICE و MoSCoW"
+      },
+      {
+        id: "design-dev",
+        title: "طراحی و توسعه محصول",
+        description: "- همکاری با تیم طراحی و فنی\n- پروتوتایپ‌سازی\n- بازخوردگیری"
+      },
+      {
+        id: "launch-iteration",
+        title: "راه‌اندازی و تکرار",
+        description: "- لانچ اولیه\n- اندازه‌گیری KPIها\n- بهبود بر اساس داده"
+      }
+    ]
+  },
+
 ];
