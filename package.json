@@ -17,7 +17,6 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/fuse.js": "6.4.3",
     "@types/node": "22.5.5",
     "@types/react": "18.3.5",
     "@types/react-dom": "18.3.0",
