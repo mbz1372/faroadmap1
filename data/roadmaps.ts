@@ -1,7 +1,7 @@
 export type RoadmapTopic = {
   id: string;
   title: string;
-  description?: string; // markdown supported
+  description?: string; // Markdown
   children?: RoadmapTopic[];
 };
 
@@ -23,17 +23,11 @@ export const roadmaps: Roadmap[] = [
       {
         id: "fundamentals",
         title: "مبانی وب",
-        description: "با HTML ساختار بده، با CSS استایل بده، و با JS تعامل بساز.",
+        description: `با HTML ساختار بده، با CSS استایل بده، و با JS تعامل بساز.`,
         children: [
-          { id: "html", title: "HTML", description: "- تگ‌های پایه
-- سمانتیک
-- فرم‌ها" },
-          { id: "css", title: "CSS (Flex/Grid, Responsive)", description: "- Layout با **Flex/Grid**
-- Media Query
-- متغیرهای CSS" },
-          { id: "js-basics", title: "JavaScript پایه", description: "- Types
-- Scope/Hoisting
-- DOM API" },
+          { id: "html", title: "HTML", description: `- تگ‌های پایه\n- سمانتیک\n- فرم‌ها` },
+          { id: "css", title: "CSS (Flex/Grid, Responsive)", description: `- Layout با **Flex/Grid**\n- Media Query\n- متغیرهای CSS` },
+          { id: "js-basics", title: "JavaScript پایه", description: `- Types\n- Scope/Hoisting\n- DOM API` },
         ],
       },
       {

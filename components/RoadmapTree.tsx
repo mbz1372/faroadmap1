@@ -2,10 +2,12 @@
 import { useState } from "react";
 import type { RoadmapTopic } from "@/data/roadmaps";
 import { marked } from "marked";
+import ProgressControls from "./ProgressControls";
+import BookmarkButton from "./BookmarkButton";
+import Link from "next/link";
 
-export default function RoadmapTree({ topics }:{ topics: RoadmapTopic[] }){
+export default function RoadmapTree({ slug, topics }:{ slug:string; topics: RoadmapTopic[] }){
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-
   const toggle = (id: string) => setExpanded(p => ({...p, [id]: !p[id]}));
 
   const render = (t: RoadmapTopic, depth=0) => (
@@ -17,7 +19,13 @@ export default function RoadmapTree({ topics }:{ topics: RoadmapTopic[] }){
           </button>
         ) : <span className="w-6 h-6 text-center">•</span>}
         <div className="flex-1">
-          <div className="font-medium">{t.title}</div>
+          <div className="flex items-center gap-2">
+            <Link href={{ pathname:"/roadmaps/[slug]/[nodeId]", params:{ slug, nodeId:t.id }}} as={`/roadmaps/${slug}/${t.id}`} className="font-medium hover:underline">
+              {t.title}
+            </Link>
+            <ProgressControls slug={slug} nodeId={t.id} />
+            <BookmarkButton slug={slug} nodeId={t.id} />
+          </div>
           {t.description && (
             <div className="prose prose-sm rtl max-w-none dark:prose-invert" dangerouslySetInnerHTML={{__html: marked.parse(t.description)}} />
           )}
@@ -30,6 +38,5 @@ export default function RoadmapTree({ topics }:{ topics: RoadmapTopic[] }){
       </div>
     </div>
   );
-
   return <div>{topics.map(t => render(t))}</div>;
 }

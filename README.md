@@ -1,31 +1,29 @@
-# FARoadmap Pro — Next.js + Tailwind (RTL, Dark Mode)
+# FARoadmap MAX — نزدیک‌ترین نسخه به roadmap.sh (Next.js 14 + Tailwind, RTL)
 
-یک نسخه‌ی نزدیک‌تر به ظاهر roadmap.sh با مسیرهای داینامیک، کارت‌ها، هدر/فوتر حرفه‌ای، تم تاریک، و درخت موضوعات باز/بسته‌شونده.
+## قابلیت‌ها
+- مسیرهای داینامیک: `/roadmaps/[slug]` و `/roadmaps/[slug]/[nodeId]`
+- جستجوی هوشمند با Fuse.js + هایلایت نتایج
+- نشان‌کردن نودها + پیگیری پیشرفت کاربر (LocalStorage)
+- حالت تیره/روشن، گرادیانت پس‌زمینه، کارت‌های مینیمال
+- نسخه پرینت `/roadmaps/[slug]/print`
+- Sitemap و robots.txt آماده SEO
+- سازگار با Vercel (ESLint غیرفعال در build)
 
-## راه‌اندازی
+## اجرای محلی
 ```bash
 npm i
 npm run dev
 # http://localhost:3000
 ```
 
-## دیپلوی در Vercel
-- پیش‌فرض‌ها کافی است. در صورت فعال بودن ESLint در CI، در `next.config.mjs` غیرفعال شده تا build قطع نشود.
+## دیپلوی
+- ریپو را در GitHub پوش کنید و در Vercel ایمپورت کنید. تنظیمات پیش‌فرض کافی است.
 
 ## محتوا
-- محتوای نمونه در `data/roadmaps.ts` است. ساختار:
-```ts
-type RoadmapTopic = {
-  id: string;
-  title: string;
-  description?: string; // Markdown
-  children?: RoadmapTopic[];
-}
-```
-- برای Markdown از `marked` استفاده شده است.
+- فایل `data/roadmaps.ts` را برای اضافه/ویرایش موضوعات تغییر دهید.
+- توضیحات نودها Markdown هستند (با `marked` رندر می‌شوند).
 
-## TODOهای پیشنهادی
-- جستجوی پیشرفته با Fuse.js
-- صفحه جزئیات هر نود
-- ایمپورت Markdown/MDX از فایل
-- پین/نشان‌گذاری موضوعات
+## ایده‌های توسعه بعدی
+- ایمپورت Markdown/MDX از فایل‌ها
+- همگام‌سازی پیشرفت با حساب کاربر (Supabase/Firebase)
+- صفحه Timeline به‌روزرسانی‌های هر roadmap
