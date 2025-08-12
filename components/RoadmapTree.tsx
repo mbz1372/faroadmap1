@@ -20,7 +20,7 @@ export default function RoadmapTree({ slug, topics }:{ slug:string; topics: Road
         ) : <span className="w-6 h-6 text-center">•</span>}
         <div className="flex-1">
           <div className="flex items-center gap-2">
-            <Link href={{ pathname:"/roadmaps/[slug]/[nodeId]", params:{ slug, nodeId:t.id }}} as={`/roadmaps/${slug}/${t.id}`} className="font-medium hover:underline">
+              <Link href={`/roadmaps/${slug}/${t.id}`} className="font-medium hover:underline">
               {t.title}
             </Link>
             <ProgressControls slug={slug} nodeId={t.id} />
