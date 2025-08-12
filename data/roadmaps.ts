@@ -1,8 +1,7 @@
 export type RoadmapTopic = {
   id: string;
   title: string;
-  description?: string;
-  badge?: string;
+  description?: string; // markdown supported
   children?: RoadmapTopic[];
 };
 
@@ -24,15 +23,21 @@ export const roadmaps: Roadmap[] = [
       {
         id: "fundamentals",
         title: "مبانی وب",
-        description: "ساختار صفحات، استایل‌دهی و تعامل اولیه.",
+        description: "با HTML ساختار بده، با CSS استایل بده، و با JS تعامل بساز.",
         children: [
-          { id: "html", title: "HTML", badge: "شروع" },
-          { id: "css", title: "CSS (Flex/Grid, Responsive)" },
-          { id: "js-basics", title: "JavaScript پایه" },
+          { id: "html", title: "HTML", description: "- تگ‌های پایه
+- سمانتیک
+- فرم‌ها" },
+          { id: "css", title: "CSS (Flex/Grid, Responsive)", description: "- Layout با **Flex/Grid**
+- Media Query
+- متغیرهای CSS" },
+          { id: "js-basics", title: "JavaScript پایه", description: "- Types
+- Scope/Hoisting
+- DOM API" },
         ],
       },
       {
-        id: "frontend-ecosystem",
+        id: "ecosystem",
         title: "اکوسیستم فرانت‌اند",
         children: [
           { id: "git", title: "Git & GitHub" },
@@ -50,8 +55,8 @@ export const roadmaps: Roadmap[] = [
         ],
       },
       {
-        id: "testing",
-        title: "تست و کیفیت",
+        id: "quality",
+        title: "کیفیت و تست",
         children: [
           { id: "jest", title: "Jest" },
           { id: "rtl", title: "React Testing Library" },
@@ -59,7 +64,7 @@ export const roadmaps: Roadmap[] = [
         ],
       },
       {
-        id: "deploy",
+        id: "ops",
         title: "انتشار و مانیتورینگ",
         children: [
           { id: "vercel", title: "Vercel" },
@@ -83,4 +88,17 @@ export const roadmaps: Roadmap[] = [
       { id: "cloud", title: "استقرار: Docker/K8s/Cloud" },
     ],
   },
+  {
+    slug: "devops",
+    title: "نقشه راه DevOps",
+    description: "ابزارها و فرهنگ برای تحویل سریع و پایدار.",
+    tags: ["Docker", "Kubernetes", "CI/CD"],
+    topics: [
+      { id: "linux", title: "Linux Basics" },
+      { id: "net", title: "Networking" },
+      { id: "container", title: "Containers (Docker)" },
+      { id: "k8s", title: "Kubernetes" },
+      { id: "obs", title: "Observability" },
+    ],
+  }
 ];

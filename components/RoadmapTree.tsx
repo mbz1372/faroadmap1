@@ -1,59 +1,35 @@
 "use client";
-import { useMemo, useState } from "react";
-import { roadmaps, RoadmapTopic } from "@/data/roadmaps";
-import { NodeCard } from "./NodeCard";
+import { useState } from "react";
+import type { RoadmapTopic } from "@/data/roadmaps";
+import { marked } from "marked";
 
-export default function RoadmapTree({ slug }: { slug: string }) {
-  const data = useMemo(() => roadmaps.find(r => r.slug === slug), [slug]);
+export default function RoadmapTree({ topics }:{ topics: RoadmapTopic[] }){
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
 
-  if (!data) return <div>نقشه راه یافت نشد.</div>;
+  const toggle = (id: string) => setExpanded(p => ({...p, [id]: !p[id]}));
 
-  const toggle = (id: string) => setExpanded(prev => ({...prev, [id]: !prev[id]}));
-
-  const renderTopic = (t: RoadmapTopic, level=0) => (
-    <div key={t.id} className="ml-0">
-      <div className="flex items-center gap-2 mb-1">
+  const render = (t: RoadmapTopic, depth=0) => (
+    <div key={t.id} className="mb-2">
+      <div className="flex items-start gap-2">
         {t.children?.length ? (
-          <button
-            onClick={() => toggle(t.id)}
-            className="rounded-lg border px-2 py-0.5 text-xs hover:bg-gray-50"
-            aria-expanded={!!expanded[t.id]}
-          >
+          <button onClick={() => toggle(t.id)} className="mt-0.5 w-6 h-6 rounded-lg border flex items-center justify-center text-sm">
             {expanded[t.id] ? "−" : "+"}
           </button>
-        ) : <span className="w-6 text-center">•</span>}
-        <span className="font-medium">{t.title}</span>
-        {t.badge && <span className="badge">{t.badge}</span>}
-      </div>
-      {t.description && <p className="text-sm text-gray-600 mb-2 pr-8">{t.description}</p>}
-      {expanded[t.id] && t.children && (
-        <div className="pl-6 border-r pr-3 border-dashed">
-          {t.children.map(c => renderTopic(c, level+1))}
+        ) : <span className="w-6 h-6 text-center">•</span>}
+        <div className="flex-1">
+          <div className="font-medium">{t.title}</div>
+          {t.description && (
+            <div className="prose prose-sm rtl max-w-none dark:prose-invert" dangerouslySetInnerHTML={{__html: marked.parse(t.description)}} />
+          )}
+          {expanded[t.id] && t.children && (
+            <div className="pl-4 border-r pr-3 border-dashed mt-2">
+              {t.children.map(c => render(c, depth+1))}
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 
-  return (
-    <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6">
-      <aside className="card p-4 h-fit sticky top-4">
-        <h2 className="font-bold text-lg mb-3">درباره نقشه</h2>
-        <p className="text-sm text-gray-600">{data.description}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {data.tags.map(tag => <span key={tag} className="badge">{tag}</span>)}
-        </div>
-      </aside>
-      <main>
-        <h1 className="text-2xl font-extrabold mb-4">{data.title}</h1>
-        <div className="space-y-2">
-          {data.topics.map(t => (
-            <NodeCard key={t.id} title={t.title} level={0}>
-              {renderTopic(t, 1)}
-            </NodeCard>
-          ))}
-        </div>
-      </main>
-    </div>
-  );
+  return <div>{topics.map(t => render(t))}</div>;
 }

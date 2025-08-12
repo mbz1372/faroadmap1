@@ -1,38 +1,31 @@
-# FARoadmap Starter (Next.js + Tailwind + TypeScript)
+# FARoadmap Pro — Next.js + Tailwind (RTL, Dark Mode)
 
-A clean, RTL-friendly starter that mimics the structure and feel of **roadmap.sh**.
-Ready for Persian content, with a sidebar of roadmaps and expandable topics.
+یک نسخه‌ی نزدیک‌تر به ظاهر roadmap.sh با مسیرهای داینامیک، کارت‌ها، هدر/فوتر حرفه‌ای، تم تاریک، و درخت موضوعات باز/بسته‌شونده.
 
-## 🚀 Quick Start
-
+## راه‌اندازی
 ```bash
 npm i
 npm run dev
-# open http://localhost:3000
+# http://localhost:3000
 ```
 
-## 🧩 Tech
-- Next.js 14 (App Router)
-- TailwindCSS 3
-- TypeScript
+## دیپلوی در Vercel
+- پیش‌فرض‌ها کافی است. در صورت فعال بودن ESLint در CI، در `next.config.mjs` غیرفعال شده تا build قطع نشود.
 
-## 📁 Structure
-- `app/` — App Router pages, layout, and global styles
-- `components/` — Sidebar, RoadmapTree, etc.
-- `data/roadmaps.ts` — Sample roadmaps data (edit/extend here)
-- `public/` — Logo & favicon
+## محتوا
+- محتوای نمونه در `data/roadmaps.ts` است. ساختار:
+```ts
+type RoadmapTopic = {
+  id: string;
+  title: string;
+  description?: string; // Markdown
+  children?: RoadmapTopic[];
+}
+```
+- برای Markdown از `marked` استفاده شده است.
 
-## 📝 Add a roadmap
-Edit `data/roadmaps.ts` and add a new object with `slug`, `title`, `description`, `tags`, and `topics`.
-Then open `/?r=your-slug`
-
-## ☁️ Deploy
-1. Push to GitHub
-2. Import repo in Vercel
-3. Set **Build Command**: `npm run build` and **Output**: `.next` (defaults are fine)
-
-## 🛣️ Next steps
-- Replace sample data with real content
-- Add dynamic routes like `/roadmaps/[slug]`
-- Add Markdown support for topic descriptions
-- Add search indexing (e.g., Fuse.js)
+## TODOهای پیشنهادی
+- جستجوی پیشرفته با Fuse.js
+- صفحه جزئیات هر نود
+- ایمپورت Markdown/MDX از فایل
+- پین/نشان‌گذاری موضوعات
