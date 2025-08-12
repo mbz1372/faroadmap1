@@ -27,3 +27,14 @@ npm run dev
 - ایمپورت Markdown/MDX از فایل‌ها
 - همگام‌سازی پیشرفت با حساب کاربر (Supabase/Firebase)
 - صفحه Timeline به‌روزرسانی‌های هر roadmap
+
+## تنظیم دامنه و SEO
+1) در Vercel یک Env Var با نام `NEXT_PUBLIC_SITE_URL` بگذارید (مثلاً `https://faroadmap.ir`).
+2) `app/sitemap.ts` و `app/robots.ts` به‌صورت خودکار از این مقدار استفاده می‌کنند.
+
+## فونت‌ها و لوگو
+- فونت فارسی Vazirmatn اضافه شد و به‌صورت پیش‌فرض فعال است.
+- لوگوها: `logo-gradient.svg`، `logo-flat.svg`، `logo-mono.svg` (فایل `logo.svg` را به دلخواه جایگزین کنید).
+
+## صفحات جدید
+- `/about` و `/contact` + صفحه‌ی 404 اختصاصی.

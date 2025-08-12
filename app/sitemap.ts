@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { roadmaps } from "@/data/roadmaps";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://example.com";
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const urls: MetadataRoute.Sitemap = [
     { url: base, lastModified: new Date() },
     { url: `${base}/search`, lastModified: new Date() },

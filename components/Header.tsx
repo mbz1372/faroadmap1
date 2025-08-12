@@ -14,7 +14,9 @@ export default function Header(){
           <Link href="/" className={clsx("px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10", pathname==="/" && "font-semibold")}>نقشه‌ها</Link>
           <Link href="/search" className={clsx("px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10", pathname==="/search" && "font-semibold")}>جستجو</Link>
           <Link href="/bookmarks" className={clsx("px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10", pathname==="/bookmarks" && "font-semibold")}>نشان‌ها</Link>
-        </nav>
+        <Link href="/about" className="px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">درباره</Link>
+<Link href="/contact" className="px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">تماس</Link>
+</nav>
         <ThemeToggle />
       </div>
     </header>
