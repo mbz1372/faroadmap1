@@ -16,6 +16,7 @@ export default function Header(){
           <Link href="/bookmarks" className={clsx("px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10", pathname==="/bookmarks" && "font-semibold")}>نشان‌ها</Link>
         <Link href="/about" className="px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">درباره</Link>
 <Link href="/contact" className="px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">تماس</Link>
+<a href="/books" className="px-3 py-1.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">کتابخانه</a>
 </nav>
         <ThemeToggle />
       </div>

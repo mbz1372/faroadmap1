@@ -1,15 +1,25 @@
 export default function ContactPage(){
   return (
     <main className="container py-10">
-      <h1 className="text-2xl font-bold mb-3">تماس با ما</h1>
-      <p className="text-gray-700 dark:text-gray-300 mb-4">برای همکاری، پیشنهاد محتوا، یا گزارش خطا با ما در ارتباط باشید.</p>
-      <div className="card p-5 max-w-lg">
-        <form className="grid gap-3">
-          <input className="rounded-xl border px-4 py-2" placeholder="نام"/>
-          <input className="rounded-xl border px-4 py-2" placeholder="ایمیل"/>
-          <textarea className="rounded-xl border px-4 py-2" placeholder="پیام" rows={5}></textarea>
-          <button type="button" className="rounded-xl border px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10">ارسال</button>
-        </form>
+      <h1 className="text-3xl font-extrabold mb-4">اطلاعات تماس</h1>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="card p-5">
+          <h2 className="font-bold text-lg mb-2">راه‌های ارتباطی</h2>
+          <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+            <li>ایمیل: <a className="link" href="mailto:hello@faroadmap.local">hello@faroadmap.local</a></li>
+            <li>گیت‌هاب: <a className="link" href="https://github.com" target="_blank">Github</a></li>
+            <li>تلگرام: <span className="text-gray-500">به‌زودی…</span></li>
+          </ul>
+        </div>
+        <div className="card p-5">
+          <h2 className="font-bold text-lg mb-3">فرم تماس</h2>
+          <form className="grid gap-3 max-w-lg">
+            <input className="rounded-xl border px-4 py-2" placeholder="نام" />
+            <input className="rounded-xl border px-4 py-2" placeholder="ایمیل" />
+            <textarea className="rounded-xl border px-4 py-2" rows={5} placeholder="پیام شما"></textarea>
+            <button type="button" className="rounded-xl border px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10">ارسال</button>
+          </form>
+        </div>
       </div>
     </main>
   );
