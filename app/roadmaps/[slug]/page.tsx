@@ -13,7 +13,7 @@ export default function RoadmapPage({ params }: Props){
     <main className="container py-10">
       <div className="flex items-center justify-between mb-4 print-hidden">
         <h1 className="text-2xl font-extrabold">{data.title}</h1>
-        <Link href={{ pathname:"/roadmaps/[slug]/print", params:{ slug: data.slug }}} as={`/roadmaps/${data.slug}/print`} className="rounded-lg border px-3 py-1.5">🖨️ نسخه چاپ</Link>
+        <Link href={`/roadmaps/${data.slug}/print`} className="rounded-lg border px-3 py-1.5">🖨️ نسخه چاپ</Link>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6">
         <aside className="card p-5 h-fit sticky top-24 print-hidden">

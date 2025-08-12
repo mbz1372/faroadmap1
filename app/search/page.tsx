@@ -20,7 +20,7 @@ export default function SearchPage(){
         {results.map(r => {
           const item = r.item;
           return (
-            <Link key={item.slug+item.id} href={{ pathname:"/roadmaps/[slug]/[nodeId]", params:{ slug:item.slug, nodeId:item.id }}} as={`/roadmaps/${item.slug}/${item.id}`} className="block card p-4 hover:shadow-lg">
+            <Link key={item.slug+item.id} href={`/roadmaps/${item.slug}/${item.id}`} className="block card p-4 hover:shadow-lg">
               <div className="text-sm text-gray-500 mb-1">{item.path.join(" / ")}</div>
               <div className="font-medium text-lg"><Highlight text={item.title} query={q}/></div>
               {item.description && <div className="text-sm text-gray-600"><Highlight text={item.description.replace(/\n/g," • ")} query={q}/></div>}

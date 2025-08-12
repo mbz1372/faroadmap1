@@ -15,7 +15,7 @@ export default function BookmarksPage(){
         {items.map(id => {
           const [slug, nodeId] = id.split(":");
           return (
-            <Link key={id} href={{ pathname:"/roadmaps/[slug]/[nodeId]", params:{ slug, nodeId }}} as={`/roadmaps/${slug}/${nodeId}`} className="card p-4 hover:shadow-lg">
+            <Link key={id} href={`/roadmaps/${slug}/${nodeId}`} className="card p-4 hover:shadow-lg">
               <div className="text-sm text-gray-500">{slug}</div>
               <div className="font-medium">{nodeId}</div>
             </Link>

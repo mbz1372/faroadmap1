@@ -31,7 +31,7 @@ export default function NodePage({ params }: Props){
   return (
     <main className="container py-10">
       <div className="text-sm text-gray-500 mb-2">
-        <Link href={{ pathname:"/roadmaps/[slug]", params:{ slug:r.slug }}} as={`/roadmaps/${r.slug}`} className="link">بازگشت به نقشه</Link>
+        <Link href={`/roadmaps/${r.slug}`} className="link">بازگشت به نقشه</Link>
       </div>
       <div className="flex items-center gap-3 mb-2">
         <h1 className="text-2xl font-extrabold">{node.title}</h1>
