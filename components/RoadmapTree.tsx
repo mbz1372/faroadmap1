@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import type { RoadmapTopic } from "@/data/roadmaps";
+import type { RoadmapTopic } from "@/types/roadmaps";
 import { marked } from "marked";
 import ProgressControls from "./ProgressControls";
 import BookmarkButton from "./BookmarkButton";

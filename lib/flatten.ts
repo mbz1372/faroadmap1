@@ -1,4 +1,4 @@
-import type { Roadmap, RoadmapTopic } from "@/data/roadmaps";
+import type { Roadmap, RoadmapTopic } from "@/types/roadmaps";
 
 export type FlatNode = { slug:string; id:string; path:string[]; title:string; description?:string };
 export function flattenRoadmap(r: Roadmap): FlatNode[]{
