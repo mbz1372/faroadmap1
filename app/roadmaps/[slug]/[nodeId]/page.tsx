@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { roadmaps } from "@/data/roadmaps";
 import Link from "next/link";
 import { marked } from "marked";
@@ -15,7 +17,7 @@ export function generateStaticParams(){
   return params;
 }
 
-export default function NodePage({ params }: Props){
+export default async function NodePage({ params }: Props){
   const r = roadmaps.find(x => x.slug === params.slug);
   if(!r) return notFound();
   const find = (arr:any[]):any => {
@@ -26,6 +28,13 @@ export default function NodePage({ params }: Props){
     }
   };
   const node = find(r.topics);
+// Try to load Markdown content from /content/roadmaps/{slug}/{nodeId}.md
+let fileContent: string | null = null;
+try {
+  const filePath = path.join(process.cwd(), "content", "roadmaps", r.slug, `${params.nodeId}.md`);
+  fileContent = await fs.readFile(filePath, "utf-8");
+} catch (e) { /* fallback to inline description */ }
+
   if(!node) return notFound();
 
   return (
@@ -38,10 +47,13 @@ export default function NodePage({ params }: Props){
         <ProgressControls slug={r.slug} nodeId={node.id} />
         <BookmarkButton slug={r.slug} nodeId={node.id} />
       </div>
-      {node.description && (
+      {fileContent ? (
+        <article className="prose rtl max-w-none dark:prose-invert" dangerouslySetInnerHTML={{__html: marked.parse(fileContent)}} />
+      ) : node.description ? (
         <article className="prose rtl max-w-none dark:prose-invert" dangerouslySetInnerHTML={{__html: marked.parse(node.description)}} />
+      ) : (
+        <p className="text-gray-600">برای این نود هنوز توضیحی ثبت نشده.</p>
       )}
-      {!node.description && <p className="text-gray-600">برای این نود هنوز توضیحی ثبت نشده.</p>}
     </main>
   );
 }
