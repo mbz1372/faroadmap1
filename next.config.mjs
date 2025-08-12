@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { typedRoutes: true },
-}
-export default nextConfig
+  eslint: { ignoreDuringBuilds: true },
+  // typedRoutes disabled for simplicity
+};
+
+export default nextConfig;

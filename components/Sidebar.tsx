@@ -1,11 +1,9 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { roadmaps } from "@/data/roadmaps";
 
 export default function Sidebar() {
-  const pathname = usePathname();
   return (
     <aside className="w-full lg:w-72 shrink-0">
       <div className="card p-3 sticky top-4">
@@ -15,11 +13,16 @@ export default function Sidebar() {
           </Link>
         </div>
         <div className="space-y-1">
-          {roadmaps.map(r => {
-            const href = `/?r=${r.slug}`;
-            const active = pathname === "/" && (typeof window !== "undefined" ? (new URLSearchParams(window.location.search).get("r") ?? "frontend") : "frontend") === r.slug;
+          {roadmaps.map((r) => {
+            const href = { pathname: "/", query: { r: r.slug } };
             return (
-              <Link key={r.slug} href={href} className={clsx("block rounded-xl px-3 py-2 text-sm hover:bg-gray-50", active && "bg-gray-100 font-semibold")}>
+              <Link
+                key={r.slug}
+                href={href}
+                className={clsx(
+                  "block rounded-xl px-3 py-2 text-sm hover:bg-gray-50"
+                )}
+              >
                 {r.title}
               </Link>
             );
