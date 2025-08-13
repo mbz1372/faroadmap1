@@ -18,7 +18,7 @@ export function I18nProvider({ children, initialLocale="fa" }:{ children: React.
     (async ()=>{
       try{
         const mod = await import(`@/messages/${locale}.json`);
-        setDict(mod as unknown as Dict);
+        setDict((mod as any).default as Dict);
         if(typeof window!=="undefined") localStorage.setItem("locale", locale);
         document.documentElement.dir = locale==="fa" ? "rtl" : "ltr";
         document.documentElement.lang = locale;

@@ -54,11 +54,11 @@ export default function Header(){
           <a href="/" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.roadmaps")}</a>
           <a href="/search" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.search")}</a>
           <a href="/bookmarks" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.bookmarks")}</a>
-          <a href="/books" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg:white/10">{t("nav.books")}</a>
-          <a href="/about" className="px-3 py-2 rounded-xl hover:bg:black/5 dark:hover:bg-white/10">{t("nav.about")}</a>
-          <a href="/contact" className="px-3 py-2 rounded-xl hover:bg:black/5 dark:hover:bg-white/10">{t("nav.contact")}</a>
-          <a href="/privacy" className="px-3 py-2 rounded-xl hover:bg:black/5 dark:hover:bg-white/10">{t("nav.privacy")}</a>
-          <a href="/me" className="px-3 py-2 rounded-xl hover:bg:black/5 dark:hover:bg-white/10">{t("nav.me")}</a>
+          <a href="/books" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.books")}</a>
+          <a href="/about" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.about")}</a>
+          <a href="/contact" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.contact")}</a>
+          <a href="/privacy" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.privacy")}</a>
+          <a href="/me" className="px-3 py-2 rounded-xl hover:bg-black/5 dark:hover:bg-white/10">{t("nav.me")}</a>
         </div>
       </div>
     </header>
