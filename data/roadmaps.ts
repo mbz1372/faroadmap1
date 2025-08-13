@@ -5,52 +5,19 @@ export const roadmaps = [
     description: "مسیر یادگیری توسعه فرانت‌اند از مبانی وب تا فریم‌ورک‌ها و ابزارهای حرفه‌ای.",
     tags: ["HTML", "CSS", "JavaScript", "React", "Next.js"],
     topics: [
-      {
-        id: "fundamentals",
-        title: "مبانی وب",
-        description: `با HTML ساختار بده، با CSS استایل بده، و با JS تعامل بساز.`,
+      { id: "fundamentals", title: "مبانی وب", description: `با HTML ساختار بده، با CSS استایل بده، و با JS تعامل بساز.`,
         children: [
           { id: "html", title: "HTML", description: `- تگ‌های پایه\n- سمانتیک\n- فرم‌ها` },
           { id: "css", title: "CSS (Flex/Grid, Responsive)", description: `- Flex/Grid\n- Media Query\n- متغیرهای CSS` },
           { id: "js-basics", title: "JavaScript پایه", description: `- Types\n- Scope/Hoisting\n- DOM API` }
         ]
       },
-      {
-        id: "ecosystem",
-        title: "اکوسیستم فرانت‌اند",
-        children: [
-          { id: "git", title: "Git & GitHub" },
-          { id: "ts", title: "TypeScript" },
-          { id: "bundlers", title: "Vite / Webpack" }
-        ]
-      },
-      {
-        id: "frameworks",
-        title: "فریم‌ورک‌ها",
-        children: [
-          { id: "react", title: "React" },
-          { id: "next", title: "Next.js" },
-          { id: "state", title: "State Management (Zustand/Redux)" }
-        ]
-      },
-      {
-        id: "quality",
-        title: "کیفیت و تست",
-        children: [
-          { id: "jest", title: "Jest" },
-          { id: "rtl", title: "React Testing Library" },
-          { id: "e2e", title: "Playwright" }
-        ]
-      },
-      {
-        id: "ops",
-        title: "انتشار و مانیتورینگ",
-        children: [
-          { id: "vercel", title: "Vercel" },
-          { id: "monitoring", title: "Sentry / LogRocket" },
-          { id: "perf", title: "Performance Basics" }
-        ]
-      }
+      { id: "ecosystem", title: "اکوسیستم", children: [
+        { id: "git", title: "Git & GitHub" }, { id: "ts", title: "TypeScript" }, { id: "bundlers", title: "Vite / Webpack" }
+      ]},
+      { id: "frameworks", title: "فریم‌ورک‌ها", children: [
+        { id: "react", title: "React" }, { id: "next", title: "Next.js" }, { id: "state", title: "State Management" }
+      ]}
     ]
   },
   {

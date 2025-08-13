@@ -9,10 +9,9 @@ const vazir = Vazirmatn({ subsets: ["arabic"], variable: "--font-vazir", display
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "FARoadmap — Persian Roadmaps",
-  description: "نسخهٔ کامل، دوزبانه و بدون خطا با پیشرفت کاربر و کتابخانه.",
+  title: "FARoadmap — Roadmaps for IT careers",
+  description: "مسیرهای یادگیری دوزبانه با پیگیری پیشرفت، کتابخانه و محتوای Markdown.",
   manifest: "/manifest.webmanifest",
-  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

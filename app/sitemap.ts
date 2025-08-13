@@ -1,6 +1,5 @@
 import { MetadataRoute } from "next";
 import { roadmaps } from "@/data/roadmaps";
-
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const urls: MetadataRoute.Sitemap = [
@@ -15,10 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
   roadmaps.forEach(r => {
     urls.push({ url: `${base}/roadmaps/${r.slug}`, lastModified: new Date() });
-    const walk = (t:any) => {
-      urls.push({ url: `${base}/roadmaps/${r.slug}/${t.id}`, lastModified: new Date() });
-      (t.children||[]).forEach(walk);
-    };
+    const walk = (t:any) => { urls.push({ url: `${base}/roadmaps/${r.slug}/${t.id}`, lastModified: new Date() }); (t.children||[]).forEach(walk); };
     r.topics.forEach(walk);
   });
   return urls;

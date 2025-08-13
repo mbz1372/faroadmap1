@@ -20,7 +20,7 @@ export default function BookDetail({ params }:{ params: { id:string } }){
         </div>
         <div className="card p-4">
           <h2 className="font-bold mb-2">پیش‌نمایش</h2>
-          <iframe src={b.file} className="w-full h-[70vh] rounded-xl border" />
+          <iframe src={b.file} className="w-full h-[70vh] rounded-xl border border-white/10" />
         </div>
       </div>
     </main>

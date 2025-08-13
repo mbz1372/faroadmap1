@@ -1,12 +1,11 @@
 {
-  "name": "faroadmap-ultra",
-  "version": "3.0.0",
+  "name": "faroadmap-stable-final",
+  "version": "3.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
     "clsx": "2.1.1",

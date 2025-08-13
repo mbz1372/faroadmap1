@@ -1,46 +1,27 @@
 "use client";
 import { useEffect, useState } from "react";
-
-type Props = { slug: string; nodeId: string };
-
-export default function ProgressControls({ slug, nodeId }: Props){
+export default function ProgressControls({ slug, nodeId }:{ slug:string; nodeId:string }){
   const key = `progress:${slug}`;
   const [done, setDone] = useState(false);
-
-  useEffect(()=>{
+  useEffect(()=>{ try{ setDone(!!(JSON.parse(localStorage.getItem(key)||"{}")[nodeId])); }catch(e){} },[key,nodeId]);
+  const toggle = ()=>{
     try{
       const map = JSON.parse(localStorage.getItem(key) || "{}");
-      setDone(!!map[nodeId]);
-    }catch(e){}
-  }, [key, nodeId]);
-
-  const toggle = () => {
-    try{
-      const map = JSON.parse(localStorage.getItem(key) || "{}");
-      map[nodeId] = !done;
-      localStorage.setItem(key, JSON.stringify(map));
-      setDone(!done);
-      // XP & Streak
-      const now = new Date();
-      const last = localStorage.getItem("lastDoneAt");
-      const lastDate = last ? new Date(last) : null;
+      map[nodeId] = !done; localStorage.setItem(key, JSON.stringify(map)); setDone(!done);
+      const now = new Date(); const last = localStorage.getItem("lastDoneAt"); const lastDate = last? new Date(last):null;
       let streak = parseInt(localStorage.getItem("streak")||"0",10);
       if(!lastDate) streak = 1;
-      else {
-        const diffDays = Math.floor((now.setHours(0,0,0,0) - new Date(lastDate).setHours(0,0,0,0)) / 86400000);
-        if(diffDays === 1) streak += 1;
-        else if(diffDays > 1) streak = 1;
+      else{
+        const d0 = new Date(lastDate); d0.setHours(0,0,0,0);
+        const d1 = new Date(now); d1.setHours(0,0,0,0);
+        const diff = Math.round((+d1-+d0)/86400000);
+        if(diff===1) streak += 1; else if(diff>1) streak = 1;
       }
-      localStorage.setItem("lastDoneAt", new Date().toISOString());
+      localStorage.setItem("lastDoneAt", now.toISOString());
       localStorage.setItem("streak", String(streak));
       const xp = parseInt(localStorage.getItem("xp")||"0",10) + 10;
       localStorage.setItem("xp", String(xp));
     }catch(e){}
   };
-
-  return (
-    <button onClick={toggle} className="text-sm rounded-lg border px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
-      {done ? "✅ انجام شد" : "⬜ درحال یادگیری"}
-    </button>
-  );
+  return <button onClick={toggle} className="text-xs rounded-lg border border-white/20 px-2 py-1 hover:bg-white/15">{done?"✅ انجام شد":"⬜ درحال یادگیری"}</button>;
 }

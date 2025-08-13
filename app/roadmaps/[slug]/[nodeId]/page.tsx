@@ -7,8 +7,6 @@ import BookmarkButton from "@/components/BookmarkButton";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-type Props = { params: { slug: string; nodeId: string } };
-
 export function generateStaticParams(){
   const params: { slug:string; nodeId:string }[] = [];
   roadmaps.forEach(r => {
@@ -18,7 +16,7 @@ export function generateStaticParams(){
   return params;
 }
 
-export default async function NodePage({ params }: Props){
+export default async function NodePage({ params }:{ params:{ slug:string; nodeId:string } }){
   const r = roadmaps.find(x => x.slug === params.slug);
   if(!r) return notFound();
   const find = (arr:any[]):any => {
@@ -31,18 +29,15 @@ export default async function NodePage({ params }: Props){
   const node = find(r.topics);
   if(!node) return notFound();
 
-  // Prefer Markdown file if exists
   let fileContent: string | null = null;
   try {
     const filePath = path.join(process.cwd(), "content", "roadmaps", r.slug, `${params.nodeId}.md`);
     fileContent = await fs.readFile(filePath, "utf-8");
-  } catch (e) { /* ignore */ }
+  } catch {}
 
   return (
     <main className="container py-10">
-      <div className="text-sm text-gray-500 mb-2">
-        <Link href={`/roadmaps/${r.slug}`} className="link">بازگشت به نقشه</Link>
-      </div>
+      <div className="text-sm text-gray-600 mb-2"><Link href={`/roadmaps/${r.slug}`} className="link">بازگشت به نقشه</Link></div>
       <div className="flex items-center gap-3 mb-2">
         <h1 className="text-2xl font-extrabold">{node.title}</h1>
         <ProgressControls slug={r.slug} nodeId={node.id} />

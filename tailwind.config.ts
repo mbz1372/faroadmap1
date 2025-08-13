@@ -4,9 +4,9 @@ const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      colors: { brand: { primary: "#0ea5e9", accent: "#22c55e", ink: "#0b1220" } },
-      boxShadow: { card: "0 6px 22px -10px rgba(0,0,0,0.25)" },
-      borderRadius: { xl: "1rem", "2xl": "1.25rem" }
+      colors: { brand:{primary:"#0ea5e9",accent:"#22c55e",ink:"#0b1220"} },
+      boxShadow: { card: "0 10px 30px -12px rgba(0,0,0,0.35)" },
+      borderRadius: { xl:"1rem", "2xl":"1.25rem" }
     }
   },
   plugins: [],
