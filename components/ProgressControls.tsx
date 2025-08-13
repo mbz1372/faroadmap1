@@ -20,6 +20,21 @@ export default function ProgressControls({ slug, nodeId }: Props){
       map[nodeId] = !done;
       localStorage.setItem(key, JSON.stringify(map));
       setDone(!done);
+      // XP & Streak
+      const now = new Date();
+      const last = localStorage.getItem("lastDoneAt");
+      const lastDate = last ? new Date(last) : null;
+      let streak = parseInt(localStorage.getItem("streak")||"0",10);
+      if(!lastDate) streak = 1;
+      else {
+        const diffDays = Math.floor((now.setHours(0,0,0,0) - new Date(lastDate).setHours(0,0,0,0)) / 86400000);
+        if(diffDays === 1) streak += 1;
+        else if(diffDays > 1) streak = 1;
+      }
+      localStorage.setItem("lastDoneAt", new Date().toISOString());
+      localStorage.setItem("streak", String(streak));
+      const xp = parseInt(localStorage.getItem("xp")||"0",10) + 10;
+      localStorage.setItem("xp", String(xp));
     }catch(e){}
   };
 

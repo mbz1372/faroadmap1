@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { roadmaps } from "@/data/roadmaps";
-import { marked } from "marked";
 
 type Props = { params: { slug: string } };
 export function generateStaticParams(){ return roadmaps.map(r => ({ slug: r.slug })); }

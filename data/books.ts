@@ -4,7 +4,7 @@ export const books = [
     title: "کد تمیز (ترجمه)",
     author: "Robert C. Martin",
     summary: "اصول و الگوهایی برای نوشتن کد قابل‌خواندن، قابل‌نگهداری و تمیز.",
-    cover: "/covers/clean-code.jpg",
+    cover: "/covers/clean-code.svg",
     file: "/books/clean-code.pdf"
   },
   {
@@ -12,15 +12,15 @@ export const books = [
     title: "طراحی سیستم‌های داده‌محور",
     author: "Martin Kleppmann",
     summary: "درک عمیق سیستم‌های توزیع‌شده، پایگاه‌های داده و الگوهای مقیاس‌پذیری.",
-    cover: "/covers/ddia.jpg",
+    cover: "/covers/ddia.svg",
     file: "/books/ddia.pdf"
   },
   {
     id: "pragmatic-programmer-fa",
     title: "برنامه‌نویس عمل‌گرا",
     author: "Andrew Hunt, David Thomas",
-    summary: "مجموعه‌ای از توصیه‌های کاربردی برای مسیر حرفه‌ای توسعه‌دهندگان.",
-    cover: "/covers/pragmatic.jpg",
+    summary: "توصیه‌های کاربردی برای رشد حرفه‌ای توسعه‌دهندگان.",
+    cover: "/covers/pragmatic.svg",
     file: "/books/pragmatic.pdf"
   }
 ];

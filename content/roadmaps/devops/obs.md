@@ -1,6 +1,3 @@
 # Observability
 
-- **Logs, Metrics, Traces**
-- ابزارها: Prometheus, Grafana, OpenTelemetry
-- SLO/SLI/SLA و واکنش به رخداد
-
+Logs, Metrics, Traces, SLO/SLI

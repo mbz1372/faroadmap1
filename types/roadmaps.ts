@@ -1,10 +1,9 @@
 export type RoadmapTopic = {
   id: string;
   title: string;
-  description?: string; // Markdown
+  description?: string;
   children?: RoadmapTopic[];
 };
-
 export type Roadmap = {
   slug: string;
   title: string;

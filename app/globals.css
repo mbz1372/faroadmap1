@@ -7,13 +7,28 @@
 html, body, :root { height: 100%; }
 body { background: rgb(var(--bg)); color: rgb(var(--fg)); direction: rtl; }
 
+/* Utilities */
 .container { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
-.card { @apply rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-card; }
-.badge { @apply inline-flex items-center rounded-full border border-gray-300 dark:border-white/20 px-2 py-0.5 text-xs font-medium; }
-.link { @apply text-sky-600 hover:text-sky-700 dark:text-sky-300; }
-.print-hidden { @apply print:hidden; }
-.gradient-bg {
-  background: radial-gradient(1200px 600px at 80% -10%, rgba(14,165,233,0.25), transparent 60%),
-              radial-gradient(800px 400px at 10% -10%, rgba(34,197,94,0.2), transparent 60%);
+.card { @apply rounded-2xl border border-gray-200/60 dark:border-white/10 bg-white dark:bg-neutral-900 shadow-card transition-shadow hover:shadow-lg; }
+.badge { @apply inline-flex items-center rounded-full border border-gray-300 dark:border-white/20 px-2 py-0.5 text-xs font-medium select-none; }
+.btn { @apply inline-flex items-center gap-2 rounded-xl border px-3 py-2 hover:bg-black/5 dark:hover:bg-white/10; }
+.btn-primary { @apply bg-sky-600 border-sky-600 text-white hover:bg-sky-700 hover:border-sky-700; }
+.progress-bar { @apply h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden; }
+.progress-bar > span { @apply block h-full bg-sky-500 dark:bg-sky-400; }
+
+/* Motion safety */
+* { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
-.prose :where(code){ @apply bg-black/5 dark:bg-white/10 px-1.5 py-0.5 rounded; }
+
+/* Hero */
+.hero { @apply container pt-10 pb-8 grid gap-8 md:grid-cols-2 items-center; }
+.hero-title { @apply text-3xl md:text-5xl font-extrabold leading-snug tracking-tight; }
+.hero-sub { @apply mt-3 text-gray-600 dark:text-gray-300; }
+
+/* Background */
+.gradient-bg {
+  background: radial-gradient(1200px 600px at 80% -10%, rgba(14,165,233,0.15), transparent 60%),
+              radial-gradient(800px 400px at 10% -10%, rgba(34,197,94,0.12), transparent 60%);
+}

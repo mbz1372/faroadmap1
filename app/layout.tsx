@@ -1,17 +1,18 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Vazirmatn, Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { I18nProvider } from "@/lib/i18n";
+import { Vazirmatn, Inter } from "next/font/google";
 
 const vazir = Vazirmatn({ subsets: ["arabic"], variable: "--font-vazir", display: "swap" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
   title: "FARoadmap — Persian Roadmaps",
-  description: "نسخه‌ی کامل و نزدیک به roadmap.sh با قابلیت‌های پیشرفته.",
+  description: "نسخهٔ کامل، دوزبانه و بدون خطا با پیشرفت کاربر و کتابخانه.",
   manifest: "/manifest.webmanifest",
-  icons: { icon: "/favicon.ico" }
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -27,7 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}} />
         <div className="min-h-screen gradient-bg">
           <Header />
-          {children}
+          <I18nProvider>{children}</I18nProvider>
           <Footer />
         </div>
       </body>

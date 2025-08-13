@@ -7,6 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: base, lastModified: new Date() },
     { url: `${base}/search`, lastModified: new Date() },
     { url: `${base}/bookmarks`, lastModified: new Date() },
+    { url: `${base}/books`, lastModified: new Date() },
+    { url: `${base}/about`, lastModified: new Date() },
+    { url: `${base}/contact`, lastModified: new Date() },
+    { url: `${base}/privacy`, lastModified: new Date() },
+    { url: `${base}/me`, lastModified: new Date() },
   ];
   roadmaps.forEach(r => {
     urls.push({ url: `${base}/roadmaps/${r.slug}`, lastModified: new Date() });

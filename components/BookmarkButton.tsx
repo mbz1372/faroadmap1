@@ -24,7 +24,7 @@ export default function BookmarkButton({ slug, nodeId }:{ slug:string; nodeId:st
     }catch(e){}
   };
   return (
-    <button onClick={toggle} className="text-sm rounded-lg border px-2 py-1 hover:bg-black/5 dark:hover:bg-white/10">
+    <button onClick={toggle} className="text-sm rounded-lg border px-2 py-1 hover:bg-black/5 dark:hover:bg:white/10">
       {saved ? "★ نشان‌شده" : "☆ نشان کردن"}
     </button>
   );

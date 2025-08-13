@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Icon from "./Icon";
 
 export default function SearchBar({ onChange }:{ onChange:(q:string)=>void }){
   const [q, setQ] = useState("");
@@ -11,7 +12,7 @@ export default function SearchBar({ onChange }:{ onChange:(q:string)=>void }){
         value={q}
         onChange={(e)=>{ setQ(e.target.value); onChange(e.target.value);}}
       />
-      <span className="absolute right-3 top-2.5">🔎</span>
+      <span className="absolute right-3 top-2.5"><Icon name="search" className="w-5 h-5"/></span>
     </div>
   );
 }

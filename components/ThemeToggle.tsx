@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Icon from "./Icon";
 
 export default function ThemeToggle(){
   const [mounted, setMounted] = useState(false);
@@ -13,8 +14,9 @@ export default function ThemeToggle(){
         document.documentElement.classList.toggle("dark", next);
         try{ localStorage.setItem("theme", next?"dark":"light"); }catch(e){}
       }}
-      className="rounded-xl border px-3 py-1.5 text-sm hover:bg-black/5 dark:hover:bg-white/10">
-      {dark ? "🌙 Dark" : "☀️ Light"}
+      className="btn" aria-label="Toggle Theme">
+      <Icon name={dark?"moon":"sun"} className="w-4 h-4"/>
+      {dark ? "Dark" : "Light"}
     </button>
   );
 }

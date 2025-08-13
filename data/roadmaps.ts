@@ -11,7 +11,7 @@ export const roadmaps = [
         description: `با HTML ساختار بده، با CSS استایل بده، و با JS تعامل بساز.`,
         children: [
           { id: "html", title: "HTML", description: `- تگ‌های پایه\n- سمانتیک\n- فرم‌ها` },
-          { id: "css", title: "CSS (Flex/Grid, Responsive)", description: `- Layout با **Flex/Grid**\n- Media Query\n- متغیرهای CSS` },
+          { id: "css", title: "CSS (Flex/Grid, Responsive)", description: `- Flex/Grid\n- Media Query\n- متغیرهای CSS` },
           { id: "js-basics", title: "JavaScript پایه", description: `- Types\n- Scope/Hoisting\n- DOM API` }
         ]
       },
@@ -86,11 +86,11 @@ export const roadmaps = [
     description: "مسیر یادگیری برای تبدیل شدن به یک مدیر محصول موفق",
     tags: ["Discovery", "Strategy", "Execution"],
     topics: [
-      { id: "intro", title: "مقدمه", description: `- تعریف نقش مدیر محصول\n- تفاوت با مدیر پروژه` },
+      { id: "intro", title: "مقدمه", description: `- نقش PM\n- تفاوت با مدیر پروژه` },
       { id: "market-research", title: "تحقیقات بازار", description: `- تحلیل رقبا\n- مصاحبه با مشتریان\n- پرسونای کاربر` },
-      { id: "roadmapping", title: "نقشه راه و اولویت‌بندی", description: `- ساخت Roadmap\n- تعیین MVP\n- RICE / MoSCoW` },
-      { id: "design-dev", title: "طراحی و توسعه محصول", description: `- همکاری با تیم طراحی و فنی\n- پروتوتایپ‌سازی\n- بازخوردگیری` },
-      { id: "launch-iteration", title: "راه‌اندازی و تکرار", description: `- لانچ اولیه\n- اندازه‌گیری KPIها\n- بهبود بر اساس داده` }
+      { id: "roadmapping", title: "نقشه راه و اولویت‌بندی", description: `- Roadmap\n- MVP\n- RICE/MoSCoW` },
+      { id: "design-dev", title: "طراحی و توسعه", description: `- همکاری Design/Engineering\n- پروتوتایپ\n- بازخورد` },
+      { id: "launch-iteration", title: "لانچ و تکرار", description: `- لانچ اولیه\n- KPI\n- بهبود بر اساس داده` }
     ]
   }
 ];

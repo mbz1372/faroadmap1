@@ -7,8 +7,8 @@ export default function ContactPage(){
           <h2 className="font-bold text-lg mb-2">راه‌های ارتباطی</h2>
           <ul className="space-y-2 text-gray-700 dark:text-gray-300">
             <li>ایمیل: <a className="link" href="mailto:hello@faroadmap.local">hello@faroadmap.local</a></li>
-            <li>گیت‌هاب: <a className="link" href="https://github.com" target="_blank">Github</a></li>
-            <li>تلگرام: <span className="text-gray-500">به‌زودی…</span></li>
+            <li>گیت‌هاب: <a className="link" href="https://github.com" target="_blank">GitHub</a></li>
+            <li>لینکدین: <a className="link" href="https://www.linkedin.com/in/mbzolfaghari" target="_blank">mbzolfaghari</a></li>
           </ul>
         </div>
         <div className="card p-5">
@@ -17,7 +17,7 @@ export default function ContactPage(){
             <input className="rounded-xl border px-4 py-2" placeholder="نام" />
             <input className="rounded-xl border px-4 py-2" placeholder="ایمیل" />
             <textarea className="rounded-xl border px-4 py-2" rows={5} placeholder="پیام شما"></textarea>
-            <button type="button" className="rounded-xl border px-4 py-2 hover:bg-black/5 dark:hover:bg-white/10">ارسال</button>
+            <button type="button" className="btn">ارسال</button>
           </form>
         </div>
       </div>

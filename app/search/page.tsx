@@ -5,16 +5,18 @@ import { roadmaps } from "@/data/roadmaps";
 import { flattenRoadmap } from "@/lib/flatten";
 import Highlight from "@/components/Highlight";
 import Link from "next/link";
+import { useI18n } from "@/lib/i18n";
 
 export default function SearchPage(){
   const [q, setQ] = useState("");
+  const { t } = useI18n();
   const dataset = useMemo(()=> roadmaps.flatMap(flattenRoadmap), []);
   const fuse = useMemo(()=> new Fuse(dataset, { includeScore:true, keys:["title","description","path"] }), [dataset]);
-  const results = useMemo(()=> q? fuse.search(q).slice(0,100):[], [q, fuse]);
+  const results = useMemo(()=> q? fuse.search(q).slice(0,120):[], [q, fuse]);
 
   return (
     <main className="container py-8">
-      <h1 className="text-2xl font-bold mb-4">جستجو</h1>
+      <h1 className="text-2xl font-bold mb-4">{t("search.title")}</h1>
       <input value={q} onChange={(e)=>setQ(e.target.value)} placeholder="نام تکنولوژی یا موضوع…" className="w-full rounded-xl border px-4 py-2 mb-4"/>
       <div className="space-y-3">
         {results.map(r => {

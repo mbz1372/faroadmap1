@@ -1,13 +1,14 @@
 import { notFound } from "next/navigation";
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { roadmaps } from "@/data/roadmaps";
 import Link from "next/link";
 import { marked } from "marked";
 import ProgressControls from "@/components/ProgressControls";
 import BookmarkButton from "@/components/BookmarkButton";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 type Props = { params: { slug: string; nodeId: string } };
+
 export function generateStaticParams(){
   const params: { slug:string; nodeId:string }[] = [];
   roadmaps.forEach(r => {
@@ -28,14 +29,14 @@ export default async function NodePage({ params }: Props){
     }
   };
   const node = find(r.topics);
-// Try to load Markdown content from /content/roadmaps/{slug}/{nodeId}.md
-let fileContent: string | null = null;
-try {
-  const filePath = path.join(process.cwd(), "content", "roadmaps", r.slug, `${params.nodeId}.md`);
-  fileContent = await fs.readFile(filePath, "utf-8");
-} catch (e) { /* fallback to inline description */ }
-
   if(!node) return notFound();
+
+  // Prefer Markdown file if exists
+  let fileContent: string | null = null;
+  try {
+    const filePath = path.join(process.cwd(), "content", "roadmaps", r.slug, `${params.nodeId}.md`);
+    fileContent = await fs.readFile(filePath, "utf-8");
+  } catch (e) { /* ignore */ }
 
   return (
     <main className="container py-10">
